@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <meta name="author" content="Roy Canseco">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+    </style>
+    <script src=""></script>
+    
+
+<!-- W3.CSS and W3.JS -->      
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Mermaid Diagrams -->   
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+<!-- Latex Math -->  
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script> 
+
+<!-- Data Tables -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+
+      <script>
+    $(document).ready( function () {
+        $('#table_id').DataTable([
+        ]);
+    } );
+    </script>
+
+
+<body>
+
+<!-- Navigation (Stays on Top) -->
+<div class="w3-top w3-bar w3-black">
+  <a href="{{ url_for('index')}}" class="w3-bar-item w3-button">Home</a>
+  <a href="{{ url_for('static', filename='about.html')}}" class="w3-bar-item w3-button">About</a>
+  <a href="{{ url_for('static', filename='members.html')}}" class="w3-bar-item w3-button">Members</a>
+  <a href="{{ url_for('static', filename='contact.html')}}" class="w3-bar-item w3-button">Contact</a>
+</div>
+
+<!-- Start Content -->
+<div class="w3-container w3-padding-32">
+
+ <h1>Dijkstra's Single-source Shortest Path </h1>
+ <p>The input is {{input}} and the start_label is {{start_label}}.</p>
+
+ 
+    {{graph |safe}}
+
+ <p>The following table is for the above graph.</p>
+  
+    <table id="table_id" class="display w3-table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Vertex</th>
+                <th>Shortest Path Cost</th>
+                <th>Parent</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for i in range(v_count) %}
+            <tr>
+                <td>{{result[i][0]}}</td>
+                <td>{{result[i][1]}}</td>
+                <td>{{result[i][2]}}</td>
+            </tr>
+          {% endfor %}
+    </table>
+
+ 
+ 
+ 
+ 
+ 
+ 
+<p class="w3-center w3-padding"> <i class=" fa fa-copyright"> </i> 2022 Sir Roy </p> 
+  
+ <!-- End Content -->
+  
+</div>
+</body>
+
+</html>
